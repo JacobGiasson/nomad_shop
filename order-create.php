@@ -1,9 +1,9 @@
 <?php
-
+// Formulaire de creation d'une commande
 require_once('Classe/CRUD.php');
 
 $crud = new CRUD;
-
+// On a besoin des clients pour remplir le menu deroulant
 $clients = $crud->select('client', 'name');
 ?>
 <!DOCTYPE html>
@@ -15,30 +15,34 @@ $clients = $crud->select('client', 'name');
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <form action="order-store.php" method="post">
-            <h2>New order</h2>
+    <?php require_once('nav.php'); ?>
 
-            <label>Client
-                <select name="client_id" required>
-                    <option value="">-- Select a client --</option>
-                    <?php foreach($clients as $client){ ?>
-                    <option value="<?= $client['id']; ?>"><?= $client['name']; ?></option>
-                    <?php } ?>
-                </select>
-            </label>
+    <main class="page">
 
-            <label>Order date
-                <input type="date" name="order_date" value="<?= date('Y-m-d'); ?>" required>
-            </label>
+        <h1 class="page__title">New order</h1>
+        <p class="page__subtitle">Record an order for an existing client</p>
 
-            <label>Total
-                <input type="number" name="total" step="0.01" required>
-            </label>
+        <form action="order-store.php" method="post" class="card">
 
-            <input type="submit" class="btn" value="Save">
+            <span class="card__label">Client</span>
+            <select name="client_id" class="form__input" required>
+                <option value="">Select a client</option>
+                <?php foreach($clients as $client){ ?>
+                <option value="<?= $client['id']; ?>"><?= $client['name']; ?></option>
+                <?php } ?>
+            </select>
+
+            <span class="card__label">Order date</span>
+            <input type="date" name="order_date" value="<?= date('Y-m-d'); ?>" class="form__input" required>
+
+            <span class="card__label">Total</span>
+            <input type="number" name="total" step="0.01" class="form__input" required>
+
+            <input type="submit" class="btn btn--primary" value="Save order">
+            <a href="order-index.php" class="btn">Cancel</a>
+
         </form>
-        <a href="order-index.php">Back to list</a>
-    </div>
+
+    </main>
 </body>
 </html>

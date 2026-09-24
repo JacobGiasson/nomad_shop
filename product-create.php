@@ -7,24 +7,32 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <form action="product-store.php" method="post">
-            <h2>New product</h2>
-            <label>Name
-                <input type="text" name="name" required>
-            </label>
-            <label>Description
-                <textarea name="description" rows="4"></textarea>
-            </label>
-            <label>Price
-                <input type="number" name="price" step="0.01" required>
-            </label>
-            <label>Stock
-                <input type="number" name="stock" value="0" required>
-            </label>
-            <input type="submit" class="btn" value="Save">
+    <?php require_once('nav.php'); ?>
+
+    <main class="page">
+
+        <h1 class="page__title">New product</h1>
+        <p class="page__subtitle">Add an item to the catalog</p>
+
+        <form action="product-store.php" method="post" class="card">
+
+            <span class="card__label">Name</span>
+            <input type="text" name="name" class="form__input" required>
+
+            <span class="card__label">Description</span>
+            <textarea name="description" rows="4" class="form__input"></textarea>
+
+            <span class="card__label">Price</span>
+            <input type="number" name="price" step="0.01" class="form__input" required>
+
+            <span class="card__label">Stock</span>
+            <input type="number" name="stock" value="0" class="form__input" required>
+
+            <input type="submit" class="btn btn--primary" value="Save product">
+            <a href="product-index.php" class="btn">Cancel</a>
+
         </form>
-        <a href="product-index.php">Back to list</a>
-    </div>
+
+    </main>
 </body>
 </html>

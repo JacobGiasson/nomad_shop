@@ -7,15 +7,30 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="client-index.php">Clients</a></li>
-            <li><a href="product-index.php">Products</a></li>
-            <li><a href="order-index.php">Orders</a></li>
-        </ul>
-    </nav>
+    <?php require_once('nav.php'); ?>
 
-    <h1>NOMAD Shop</h1>
-    <p>Web management system for an outdoor hydration store.</p>
+    <main class="page">
+
+        <h1 class="page__title">NOMAD Shop</h1>
+        <p class="page__subtitle">Management system for an outdoor hydration store.</p>
+
+        <div class="card">
+            <span class="card__label">Clients</span>
+            <span class="card__value">
+                <a href="client-index.php">Manage customers and their contact details</a>
+            </span>
+
+            <span class="card__label">Products</span>
+            <span class="card__value">
+                <a href="product-index.php">Manage the catalog, prices and stock</a>
+            </span>
+
+            <span class="card__label">Orders</span>
+            <span class="card__value">
+                <a href="order-index.php">Track orders and the client who placed them</a>
+            </span>
+        </div>
+
+    </main>
 </body>
 </html>

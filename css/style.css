@@ -1,0 +1,238 @@
+/* ==========================================================
+   NOMAD Shop - Feuille de style
+   Jacob Giasson - TP1 Programmation Web avancee
+   ========================================================== */
+
+/* Base
+   ========================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f2f4f3;
+    color: #14181a;
+    font-family: "Segoe UI", -apple-system, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: #0f7b6c;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Nav
+   ========================================================== */
+.nav {
+    background: #14181a;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.nav__brand {
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    margin-right: 16px;
+}
+
+.nav__brand:hover {
+    text-decoration: none;
+}
+
+.nav__link {
+    color: #98a3a6;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.nav__link:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Page
+   ========================================================== */
+.page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 72px 32px 100px;
+    text-align: center;
+}
+
+.page__title {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.page__subtitle {
+    color: #6d7a7d;
+    font-size: 18px;
+    margin-bottom: 48px;
+}
+
+.page__actions {
+    margin-top: 36px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Table
+   ========================================================== */
+.table {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e0e5e4;
+    border-radius: 14px;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(20, 24, 26, 0.05);
+}
+
+.table th {
+    background: #fafbfb;
+    color: #6d7a7d;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 20px 28px;
+    border-bottom: 1px solid #e0e5e4;
+}
+
+.table td {
+    padding: 24px 28px;
+    border-bottom: 1px solid #f0f3f2;
+    font-size: 17px;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.table tr:hover td {
+    background: #fafbfb;
+}
+
+/* Card
+   ========================================================== */
+.card {
+    background: #ffffff;
+    border: 1px solid #e0e5e4;
+    border-radius: 14px;
+    padding: 44px 48px;
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(20, 24, 26, 0.05);
+}
+
+.card__label {
+    display: block;
+    color: #6d7a7d;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.card__value {
+    display: block;
+    font-size: 21px;
+    font-weight: 500;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #f0f3f2;
+}
+
+.card__value:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+/* Form
+   ========================================================== */
+.form__input {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 8px;
+    margin-bottom: 28px;
+    border: 1px solid #d5dbda;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #14181a;
+    font-family: inherit;
+    font-size: 17px;
+}
+
+.form__input:focus {
+    outline: none;
+    border-color: #0f7b6c;
+    box-shadow: 0 0 0 4px rgba(15, 123, 108, 0.1);
+}
+
+/* Button
+   ========================================================== */
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 1px solid #d5dbda;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #14181a;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #fafbfb;
+    border-color: #b3bcbb;
+    text-decoration: none;
+}
+
+.btn--primary {
+    background: #0f7b6c;
+    border-color: #0f7b6c;
+    color: #ffffff;
+}
+
+.btn--primary:hover {
+    background: #0b5c51;
+    border-color: #0b5c51;
+}
+
+.btn--danger {
+    background: #ffffff;
+    border-color: #d5dbda;
+    color: #b4302c;
+}
+
+.btn--danger:hover {
+    background: #fdf1f0;
+    border-color: #b4302c;
+}
+
+.btn--small {
+    padding: 9px 18px;
+    font-size: 15px;
+}

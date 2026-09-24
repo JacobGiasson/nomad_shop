@@ -1,5 +1,5 @@
 <?php
-
+// Formulaire de modification d'une commande
 if(!isset($_GET['id']) or $_GET['id'] == null){
     header('location:order-index.php');
     die();
@@ -28,33 +28,37 @@ $clients = $crud->select('client', 'name');
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <form action="order-update.php" method="post">
-            <h2>Edit order #<?= $order['id']; ?></h2>
+    <?php require_once('nav.php'); ?>
+
+    <main class="page">
+
+        <h1 class="page__title">Edit order #<?= $order['id']; ?></h1>
+        <p class="page__subtitle">Placed on <?= $order['order_date']; ?></p>
+
+        <form action="order-update.php" method="post" class="card">
 
             <input type="hidden" name="id" value="<?= $order['id']; ?>">
 
-            <label>Client
-                <select name="client_id" required>
-                    <?php foreach($clients as $client){ ?>
-                    <option value="<?= $client['id']; ?>" <?= $client['id'] == $order['client_id'] ? 'selected' : ''; ?>>
-                        <?= $client['name']; ?>
-                    </option>
-                    <?php } ?>
-                </select>
-            </label>
+            <span class="card__label">Client</span>
+            <select name="client_id" class="form__input" required>
+                <?php foreach($clients as $client){ ?>
+                <option value="<?= $client['id']; ?>" <?= $client['id'] == $order['client_id'] ? 'selected' : ''; ?>>
+                    <?= $client['name']; ?>
+                </option>
+                <?php } ?>
+            </select>
 
-            <label>Order date
-                <input type="date" name="order_date" value="<?= $order['order_date']; ?>" required>
-            </label>
+            <span class="card__label">Order date</span>
+            <input type="date" name="order_date" value="<?= $order['order_date']; ?>" class="form__input" required>
 
-            <label>Total
-                <input type="number" name="total" step="0.01" value="<?= $order['total']; ?>" required>
-            </label>
+            <span class="card__label">Total</span>
+            <input type="number" name="total" step="0.01" value="<?= $order['total']; ?>" class="form__input" required>
 
-            <input type="submit" class="btn" value="Save">
+            <input type="submit" class="btn btn--primary" value="Save changes">
+            <a href="order-show.php?id=<?= $order['id']; ?>" class="btn">Cancel</a>
+
         </form>
-        <a href="order-show.php?id=<?= $order['id']; ?>">Cancel</a>
-    </div>
+
+    </main>
 </body>
 </html>

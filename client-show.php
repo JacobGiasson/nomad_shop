@@ -1,5 +1,5 @@
 <?php
-// Displays one client's details
+// Affiche la fiche d'un client
 if(!isset($_GET['id']) or $_GET['id'] == null){
     header('location:client-index.php');
     die();
@@ -28,22 +28,41 @@ if($client){
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1><?= $name; ?></h1>
-        <p><strong>Email: </strong><?= $email; ?></p>
-        <p><strong>Phone: </strong><?= $phone; ?></p>
-        <p><strong>Address: </strong><?= $address; ?></p>
-        <p><strong>City: </strong><?= $city; ?></p>
-        <p><strong>Zip Code: </strong><?= $zip_code; ?></p>
+    <?php require_once('nav.php'); ?>
 
-        <a href="client-edit.php?id=<?= $id; ?>" class="btn">Edit</a>
+    <main class="page">
 
-        <form action="client-delete.php" method="post">
-            <input type="hidden" name="id" value="<?= $id; ?>">
-            <input type="submit" value="Delete" class="btn red">
-        </form>
+        <h1 class="page__title"><?= $name; ?></h1>
+        <p class="page__subtitle">Client #<?= $id; ?></p>
 
-        <a href="client-index.php">Back to list</a>
-    </div>
+        <div class="card">
+            <span class="card__label">Email</span>
+            <span class="card__value"><?= $email; ?></span>
+
+            <span class="card__label">Phone</span>
+            <span class="card__value"><?= $phone; ?></span>
+
+            <span class="card__label">Address</span>
+            <span class="card__value"><?= $address; ?></span>
+
+            <span class="card__label">City</span>
+            <span class="card__value"><?= $city; ?></span>
+
+            <span class="card__label">Zip code</span>
+            <span class="card__value"><?= $zip_code; ?></span>
+        </div>
+
+        <div class="page__actions">
+            <a href="client-edit.php?id=<?= $id; ?>" class="btn btn--primary">Edit</a>
+
+            <form action="client-delete.php" method="post">
+                <input type="hidden" name="id" value="<?= $id; ?>">
+                <input type="submit" value="Delete" class="btn btn--danger">
+            </form>
+
+            <a href="client-index.php" class="btn">Back to list</a>
+        </div>
+
+    </main>
 </body>
 </html>

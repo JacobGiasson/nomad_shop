@@ -1,5 +1,5 @@
 <?php
-
+// Formulaire de modification d'un produit
 if(!isset($_GET['id']) or $_GET['id'] == null){
     header('location:product-index.php');
     die();
@@ -28,28 +28,34 @@ if($product){
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <form action="product-update.php" method="post">
-            <h2>Product Edit</h2>
+    <?php require_once('nav.php'); ?>
+
+    <main class="page">
+
+        <h1 class="page__title">Edit <?= $name; ?></h1>
+        <p class="page__subtitle">Product #<?= $id; ?></p>
+
+        <form action="product-update.php" method="post" class="card">
 
             <input type="hidden" name="id" value="<?= $id; ?>">
 
-            <label>Name
-                <input type="text" name="name" value="<?= $name; ?>" required>
-            </label>
-            <label>Description
-                <textarea name="description" rows="4"><?= $description; ?></textarea>
-            </label>
-            <label>Price
-                <input type="number" name="price" step="0.01" value="<?= $price; ?>" required>
-            </label>
-            <label>Stock
-                <input type="number" name="stock" value="<?= $stock; ?>" required>
-            </label>
+            <span class="card__label">Name</span>
+            <input type="text" name="name" value="<?= $name; ?>" class="form__input" required>
 
-            <input type="submit" class="btn" value="Save">
+            <span class="card__label">Description</span>
+            <textarea name="description" rows="4" class="form__input"><?= $description; ?></textarea>
+
+            <span class="card__label">Price</span>
+            <input type="number" name="price" step="0.01" value="<?= $price; ?>" class="form__input" required>
+
+            <span class="card__label">Stock</span>
+            <input type="number" name="stock" value="<?= $stock; ?>" class="form__input" required>
+
+            <input type="submit" class="btn btn--primary" value="Save changes">
+            <a href="product-show.php?id=<?= $id; ?>" class="btn">Cancel</a>
+
         </form>
-        <a href="product-show.php?id=<?= $id; ?>">Cancel</a>
-    </div>
+
+    </main>
 </body>
 </html>
