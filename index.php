@@ -11,6 +11,7 @@
         <ul>
             <li><a href="client-index.php">Clients</a></li>
             <li><a href="product-index.php">Products</a></li>
+            <li><a href="order-index.php">Orders</a></li>
         </ul>
     </nav>
 
